@@ -71,7 +71,7 @@ class address_updateTest extends PHPUnit_Framework_TestCase
 				'city'=>36,
 				'district'=>400,
 				'consignee'=>'小王',
-				'email'=>'471010000@qq.com',
+				'email'=>'471010089@qq.com',
 				'address'=>'旺卒中心',
 				'zipcode'=>'050000',
 				'mobile'=>'13930111111',

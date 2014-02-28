@@ -72,8 +72,44 @@ if (file_exists($file)) {
     define('IN_ECS', true);
     require $file;
 } else {
-    echo $file;
-    echo '<br>';
-    echo 'api: '.$url.' 缺失';
-    //echo $file;exit;
+	echo <<< ___END___
+
+    <!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <title>ECMobile</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+        <p style="font-size: 14px;">请确认客户端配置填写正确，如需要技术支持：</p>
+        <br/>
+        <p style="font-size: 14px;">官方论坛：<a href="http://bbs.ecmobile.cn/">http://bbs.ecmobile.cn/</a></p>
+        <p style="font-size: 14px;">QQ群1：329673575</p>
+        <p style="font-size: 14px;">QQ群2：239571314</p>
+        <p style="font-size: 14px;">QQ群3：347624547</p>
+        <br/>
+        <pre>                                                                           
+     _/_/_/                      _/        _/_/_/_/_/                     
+  _/          _/_/      _/_/    _/  _/          _/      _/_/      _/_/    
+ _/  _/_/  _/_/_/_/  _/_/_/_/  _/_/          _/      _/    _/  _/    _/   
+_/    _/  _/        _/        _/  _/      _/        _/    _/  _/    _/    
+ _/_/_/    _/_/_/    _/_/_/  _/    _/  _/_/_/_/_/    _/_/      _/_/       
+                                                                        
+
+Copyright 2013-2014, Geek Zoo Studio
+        </pre>
+
+    </body>
+</html>
+
+___END___;
+
 }
