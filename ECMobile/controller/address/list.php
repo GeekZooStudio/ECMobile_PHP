@@ -27,15 +27,17 @@
  */
 
 define('INIT_NO_USERS', true);
-
 require(EC_PATH . '/includes/init.php');
-
 GZ_Api::authSession();
 
+
 include_once(EC_PATH . '/includes/lib_order.php');
+
 include_once(EC_PATH . '/includes/lib_transaction.php');
 
+
 $user_id = $_SESSION['user_id'];
+
 // $user_id = _POST('user_id', 0);
 
 $sql = "SELECT * FROM " . $GLOBALS['ecs']->table('user_address') .
@@ -49,9 +51,13 @@ $result = array();
 
 foreach ($consignee_list as $key => $value) {
 	
+
 	$result[$key]['id'] = $value['address_id'];
+
 	$result[$key]['consignee'] = $value['consignee'];
+
 	$result[$key]['address'] = $value['address'];
+
 
 	$country = $value['country'];
 	$sql1 = "SELECT * FROM " . $GLOBALS['ecs']->table('region') .
@@ -78,10 +84,15 @@ foreach ($consignee_list as $key => $value) {
 	$result[$key]['district_name'] = $district[0]['region_name'];
 
 	if($value['address_id'] == $consignee['address_id']){
+
 		$result[$key]['default_address'] = 1;
-	} else {
+
+	}else{
+
 		$result[$key]['default_address'] = 0;
+
 	}
+
 }
 
 GZ_Api::outPut($result);

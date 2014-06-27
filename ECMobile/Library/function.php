@@ -144,10 +144,8 @@ function GZ_order_query_sql($type = 'finished', $alias = '')
     }
 }
 
-
-
 function gz_autoload($className) {
-    $file = GZ_PATH . '/Library/' . $className . '.php';
+    $file = GZ_PATH . '/library/' . $className . '.php';
     if (file_exists($file)) {
         require_once $file;
     }
@@ -404,4 +402,46 @@ function API_DATA($type, $readData)
             break;
     }
     return $outData;
+}
+
+function ecmobile_url() {
+    /* 协议 */
+    $protocol = (isset($_SERVER['HTTPS']) && (strtolower($_SERVER['HTTPS']) != 'off')) ? 'https://' : 'http://';
+    /* 域名或IP地址 */
+    if (isset($_SERVER['HTTP_X_FORWARDED_HOST']))
+    {
+        $host = $_SERVER['HTTP_X_FORWARDED_HOST'];
+    }
+    elseif (isset($_SERVER['HTTP_HOST']))
+    {
+        $host = $_SERVER['HTTP_HOST'];
+    }
+    else
+    {
+        /* 端口 */
+        if (isset($_SERVER['SERVER_PORT']))
+        {
+            $port = ':' . $_SERVER['SERVER_PORT'];
+
+            if ((':80' == $port && 'http://' == $protocol) || (':443' == $port && 'https://' == $protocol))
+            {
+                $port = '';
+            }
+        }
+        else
+        {
+            $port = '';
+        }
+
+        if (isset($_SERVER['SERVER_NAME']))
+        {
+            $host = $_SERVER['SERVER_NAME'] . $port;
+        }
+        elseif (isset($_SERVER['SERVER_ADDR']))
+        {
+            $host = $_SERVER['SERVER_ADDR'] . $port;
+        }
+    }
+
+    return $protocol . $host . dirname(PHP_SELF);
 }

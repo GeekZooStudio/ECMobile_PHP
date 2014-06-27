@@ -27,9 +27,6 @@
  */
 
 require(EC_PATH . '/includes/init.php');
-// define('DEBUG_MODE', 1);
-// define('INIT_NO_SMARTY', true);
-// $smarty = new GZ_Smarty('search');
 
 $data = array();
 

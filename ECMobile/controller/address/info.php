@@ -27,9 +27,7 @@
  */
 
 define('INIT_NO_USERS', true);
-
 require(EC_PATH . '/includes/init.php');
-
 GZ_Api::authSession();
 
 $id = _POST('address_id', 0);
@@ -40,9 +38,14 @@ include_once(EC_PATH . '/includes/lib_transaction.php');
 $user_id = $_SESSION['user_id'];
 
 $sql = "SELECT * FROM " . $GLOBALS['ecs']->table('user_address') .
-        " WHERE address_id = '$id'";
+        " WHERE address_id = '$id'";     
 
 $arr = $GLOBALS['db']->getRow($sql);
+
+if ($arr == false) 
+{
+	GZ_Api::outPut(13);
+}   
 
 $consignee = get_consignee($user_id);// 取得默认地址
 
@@ -79,10 +82,14 @@ $result["best_time"] = $arr['best_time'];
 $result["default_address"] = $arr['default_address'];
 $result["tel"] = $arr['tel'];
 
-if ( $arr['address_id'] == $consignee['address_id'] ) {
+if($arr['address_id'] == $consignee['address_id']){
+
 	$result['default_address'] = 1;
-} else {
+
+}else{
+
 	$result['default_address'] = 0;
+
 }
 
 GZ_Api::outPut($result);

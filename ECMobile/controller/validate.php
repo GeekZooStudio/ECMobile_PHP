@@ -1,7 +1,7 @@
 <?php
 
 /*
- *                                                                          
+ *
  *       _/_/_/                      _/        _/_/_/_/_/                     
  *    _/          _/_/      _/_/    _/  _/          _/      _/_/      _/_/    
  *   _/  _/_/  _/_/_/_/  _/_/_/_/  _/_/          _/      _/    _/  _/    _/   
@@ -36,11 +36,9 @@ include_once(EC_PATH . '/includes/lib_order.php');
 /* 载入语言文件 */
 require_once(EC_PATH . '/languages/' .$_CFG['lang']. '/user.php');
 require_once(EC_PATH . '/languages/' .$_CFG['lang']. '/shopping_flow.php');
-
 if (empty($tmp[0])) {
 	GZ_Api::outPut(101);
 }
-
 switch ($tmp[0]) {
 	case 'bonus':
 		   $bonus_sn = trim(_POST('bonus_sn'));

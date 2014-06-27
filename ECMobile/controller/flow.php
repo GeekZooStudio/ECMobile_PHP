@@ -1,7 +1,7 @@
 <?php
 
 /*
- *                                                                          
+ *
  *       _/_/_/                      _/        _/_/_/_/_/                     
  *    _/          _/_/      _/_/    _/  _/          _/      _/_/      _/_/    
  *   _/  _/_/  _/_/_/_/  _/_/_/_/  _/_/          _/      _/    _/  _/    _/   
@@ -104,7 +104,7 @@ switch ($tmp[0]) {
 		        exit;
 		    }
 
-		    $consignee = get_consignee($_SESSION['user_id']);
+		    $consignee = get_consignee($_SESSION['user_id']);		    
 
 		    /* 检查收货人信息是否完整 */
 		    if (!check_consignee_info($consignee, $flow_type))
@@ -393,9 +393,21 @@ switch ($tmp[0]) {
 		// $out['pack_list'] = $smarty->_var['pack_list']; //是否有包装
 		// $out['card_list'] = $smarty->_var['card_list'];//贺卡 <!-- {if $card.card_img} 是否有图片 -->
 		// $out['allow_use_surplus'] = $smarty->_var['allow_use_surplus'];//余额 是否使用余额
-		$out['allow_use_integral'] = $smarty->_var['allow_use_integral'];//积分 是否使用积分
-		$out['allow_use_bonus'] = $smarty->_var['allow_use_bonus'];//是否使用红包
-		$out['bonus'] = $smarty->_var['bonus_list'];//红包
+		if (!empty($smarty->_var['allow_use_integral'])) 
+		{
+			$out['allow_use_integral'] = $smarty->_var['allow_use_integral'];//积分 是否使用积分
+		}
+
+		if (!empty($smarty->_var['allow_use_bonus'])) 
+		{
+			$out['allow_use_bonus'] = $smarty->_var['allow_use_bonus'];//是否使用红包
+		}
+		
+		if (!empty($smarty->_var['bonus_list'])) 
+		{
+			$out['bonus'] = $smarty->_var['bonus_list'];//红包
+		}
+		
 		$out['inv_content_list'] = $smarty->_var['inv_content_list'];//能否开发票 
 		$out['inv_type_list'] = $smarty->_var['inv_type_list'];//能否开发票 
 		// $out['how_oos_list'] = $smarty->_var['how_oos_list'];//是否使用缺货处理

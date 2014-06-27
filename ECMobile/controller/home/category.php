@@ -27,10 +27,10 @@
  */
 
 require(EC_PATH . '/includes/init.php');
-
 include_once(EC_PATH . '/includes/lib_transaction.php');
 
 $categoryGoods = array();
+
 $category = get_categories_tree();
 
 if ( !empty($category) ) {

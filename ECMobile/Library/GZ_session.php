@@ -28,5 +28,6 @@
 
 class GZ_session extends cls_session
 {
+	/* session最大过期时间 */
     public $max_life_time  = 2592000; 
 }

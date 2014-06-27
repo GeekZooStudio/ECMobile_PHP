@@ -1,12 +1,12 @@
 <?php
 /*
- *                                                                          
+ *
  *       _/_/_/                      _/        _/_/_/_/_/                     
  *    _/          _/_/      _/_/    _/  _/          _/      _/_/      _/_/    
  *   _/  _/_/  _/_/_/_/  _/_/_/_/  _/_/          _/      _/    _/  _/    _/   
  *  _/    _/  _/        _/        _/  _/      _/        _/    _/  _/    _/    
  *   _/_/_/    _/_/_/    _/_/_/  _/    _/  _/_/_/_/_/    _/_/      _/_/       
- *                                                                          
+ *
  *
  *  Copyright 2013-2014, Geek Zoo Studio
  *  http://www.ecmobile.cn/license.html
@@ -26,9 +26,6 @@
  */
 
 require(EC_PATH . '/includes/init.php');
-// define('DEBUG_MODE', 1);
-// define('INIT_NO_SMARTY', true);
-// $smarty = new GZ_Smarty('search');
 
 $filter = _POST('filter', array());
 
