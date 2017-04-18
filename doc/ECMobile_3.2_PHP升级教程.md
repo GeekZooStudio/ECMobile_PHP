@@ -1,4 +1,4 @@
-#ECMobile_3.2_PHP升级教程
+# ECMobile_3.2_PHP升级教程
 1.数据库中payment表添加微信支付
 		
 	INSERT INTO `d2c_payment` (`pay_id`, `pay_code`, `pay_name`, `pay_fee`, `pay_desc`, `pay_order`, `pay_config`, `enabled`, `is_cod`, `is_online`)
